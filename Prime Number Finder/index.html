@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Prime Number Finder </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Prime Counter</h1>
+        <input
+            type="number"
+            id="numberInput"
+            placeholder="Enter a number">
+        <button onclick="calculate()">Calculate</button>
+        <div id="result"></div>
+    </div>
+<script>
+    function isPrime(num) {
+        if (num < 2) return false;
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+    function countPrimes(limit) {
+        let count = 0;
+        for (let i = 2; i <= limit; i++) {
+            if (isPrime(i)) {
+                count++;
+            }
+        }
+        return count;
+    }
+    function calculate() {
+        const input = document.getElementById("numberInput");
+        const result = document.getElementById("result");
+
+        const value = input.value.trim();
+        const number = Number(value);
+        if (
+            value === "" ||
+            !Number.isSafeInteger(number) ||
+            number < 2
+        ) {
+            result.textContent = "Please enter an integer greater than or equal to 2.";
+            return;
+        }
+        const total = countPrimes(number);
+        result.textContent =
+        `There are ${total} prime numbers.`;
+    }
+</script>
+</body>
+</html>

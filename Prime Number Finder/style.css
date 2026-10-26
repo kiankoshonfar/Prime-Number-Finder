@@ -1,0 +1,44 @@
+body{
+    background-color: rgb(139, 190, 190);
+    text-align: center;
+}
+#result{
+    margin-top: 30px;
+}
+#numberInput{
+    text-align: center;
+    height: 30px;
+    border: 1.5px solid black;
+    outline: none;
+    border-radius: 8px;
+     animation: rgbBorder 5s ease-in-out infinite;
+}
+#numberInput:hover{
+    background-color: rgba(216, 216, 216, 0.993);
+}
+@keyframes rgbBorder {
+    0% {
+        border-color: red;
+        box-shadow: 0 0 10px red;
+    }
+
+    25% {
+        border-color: blue;
+        box-shadow: 0 0 10px blue;
+    }
+
+    50% {
+        border-color: lime;
+        box-shadow: 0 0 10px lime;
+    }
+
+    75% {
+        border-color: magenta;
+        box-shadow: 0 0 10px magenta;
+    }
+
+    100% {
+        border-color: red;
+        box-shadow: 0 0 10px red;
+    }
+}
